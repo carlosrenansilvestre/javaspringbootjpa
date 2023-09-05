@@ -1,15 +1,18 @@
 package com.javaspring.rest.service;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.javaspring.rest.model.User;
 import com.javaspring.rest.repository.UserRepository;
 
+@Service
 public class UserService {
 	
-	UserRepository userRepository = new UserRepository();
+	@Autowired
+	public UserRepository userRepository;
 	
-	public List<User> findAll() {
+	public Iterable<User> findAll() {
 		return userRepository.findAll();
 	}
 }

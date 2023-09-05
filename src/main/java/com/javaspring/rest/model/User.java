@@ -2,15 +2,37 @@ package com.javaspring.rest.model;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "users")
 public class User implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	public String name;
 	private String document;
 	public Integer role;
 	
+	public User(Integer id, String name, String document, Integer role) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.document = document;
+		this.role = role;
+	}
+	
+	public User() {
+		
+	}
+
 	public Integer getId() {
 		return id;
 	}
