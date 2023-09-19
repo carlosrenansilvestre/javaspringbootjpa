@@ -2,6 +2,7 @@ package com.javaspring.rest.model;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,10 +16,17 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(name = "name")
 	public String name;
+	
+	@Column(name = "document")
 	private String document;
+	
+	@Column(name = "role")
 	public Integer role;
 	
 	public User(Integer id, String name, String document, Integer role) {
